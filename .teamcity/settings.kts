@@ -5,7 +5,7 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
 version = "2020.1"
 
 project {
-    buildType(HelloWorld)
+    buildType(BuildAndDeploy)
 }
 
 object BuildAndDeploy : BuildType({
@@ -21,14 +21,10 @@ object BuildAndDeploy : BuildType({
             goals = "clean install"
             runnerArgs = "-Dmaven.test.failure.ignore=true"
         }
-    }
-})
 
-object HelloWorld: BuildType({
-    name = "Hello world"
-    steps {
         script {
             scriptContent = "echo 'Hello world!'"
         }
     }
 })
+
