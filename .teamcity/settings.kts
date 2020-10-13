@@ -7,22 +7,6 @@ project {
     buildType(HelloWorld)
 }
 
-object BuildAndDeploy : BuildType({
-    name = "Build And Deploy"
-
-    vcs {
-        root(DslContext.settingsRoot)
-    }
-
-    steps {
-        print("Maven clean test is runned!")
-        maven {
-            goals = "clean install"
-            runnerArgs = "-Dmaven.test.failure.ignore=true"
-        }
-    }
-})
-
 object HelloWorld: BuildType({
     name = "Hello world"
     steps {
