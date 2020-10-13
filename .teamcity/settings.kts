@@ -16,11 +16,10 @@ object BuildAndDeploy : BuildType({
 
     steps {
         print("Maven clean test is runned!")
-        maven {
-            goals = "clean install"
-            runnerArgs = "-Dmaven.test.failure.ignore=true"
-        }
-
+        // maven {
+        //     goals = "clean install"
+        //     runnerArgs = "-Dmaven.test.failure.ignore=true"
+        // }
         script {
             scriptContent = "echo Hello World"
         }
