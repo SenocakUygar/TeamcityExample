@@ -8,7 +8,7 @@ project {
 }
 
 object BuildAndDeploy : BuildType({
-    name = "Deploy"
+    name = "Build And Deploy"
 
     vcs {
         root(DslContext.settingsRoot)
