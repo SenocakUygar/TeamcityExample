@@ -20,5 +20,9 @@ object BuildAndDeploy : BuildType({
             goals = "clean install"
             runnerArgs = "-Dmaven.test.failure.ignore=true"
         }
+
+        script {
+            scriptContent = "echo Hello World"
+        }
     }
 })
