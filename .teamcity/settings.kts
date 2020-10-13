@@ -17,7 +17,7 @@ object BuildAndDeploy : BuildType({
     steps {
         print("Maven clean test is runned!")
         maven {
-            goals = "clean test"
+            goals = "clean install"
             runnerArgs = "-Dmaven.test.failure.ignore=true"
         }
     }
