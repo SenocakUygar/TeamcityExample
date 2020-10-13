@@ -4,7 +4,6 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.maven
 version = "2020.1"
 
 project {
-
     buildType(BuildAndDeploy)
 }
 
@@ -16,6 +15,7 @@ object BuildAndDeploy : BuildType({
     }
 
     steps {
+        print("Maven clean test is runned!")
         maven {
             goals = "clean test"
             runnerArgs = "-Dmaven.test.failure.ignore=true"
