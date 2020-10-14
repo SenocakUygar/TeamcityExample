@@ -4,6 +4,7 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.maven
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
+import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
 import jetbrains.buildServer.configs.kotlin.v2019_2.ui.*
 
 /*
@@ -39,6 +40,14 @@ changeBuildType(RelativeId("BuildAndDeploy")) {
                 param("secure:jetbrains.buildServer.deployer.password", "credentialsJSON:f9f9575b-b121-4d2c-9132-2eb2af23baf4")
                 param("jetbrains.buildServer.sshexec.authMethod", "PWD")
                 param("jetbrains.buildServer.deployer.ssh.transport", "jetbrains.buildServer.deployer.ssh.transport.scp")
+            }
+        }
+    }
+
+    triggers {
+        add {
+            vcs {
+                branchFilter = ""
             }
         }
     }
