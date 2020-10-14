@@ -25,18 +25,18 @@ changeBuildType(RelativeId("BuildAndDeploy")) {
         }
     }
     steps {
-        update<ScriptBuildStep>(1) {
-            name = "release"
-            clearConditions()
-            scriptContent = """mvn versions:set versions:commit -DnewVersion="1.0.2""""
-        }
-        insert(2) {
-            script {
-                scriptContent = """
-                    echo 'Hello world!'
-                    ls
-                """.trimIndent()
+        insert(1) {
+            maven {
+                name = "release"
+                goals = """versions:set versions:commit -DnewVersion="1.0.2""""
             }
+        }
+        update<ScriptBuildStep>(2) {
+            clearConditions()
+            scriptContent = """
+                echo 'Hello world!'
+                ls
+            """.trimIndent()
         }
         insert(3) {
             step {
