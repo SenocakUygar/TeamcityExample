@@ -11,7 +11,7 @@ in the root project, and delete the patch script.
 */
 create(DslContext.projectId, GitVcsRoot({
     id("HttpsGithubComUygarSenocakkTeamcityExampleGit")
-    name = "https://github.com/UygarSenocakk/TeamcityExample.git"
+    name = "https://github.com/UygarSenocakk/TeamcityExample.git#refs/heads/release"
     url = "https://github.com/UygarSenocakk/TeamcityExample.git"
     branch = "refs/heads/main"
 }))
