@@ -8,4 +8,7 @@ class HelloWorld {
 
     @GetMapping("/")
     fun helloWorld(): String = "Hello World"
+
+    @GetMapping("/test")
+    fun test(): String = "Hello World"
 }
