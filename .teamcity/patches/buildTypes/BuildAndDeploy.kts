@@ -2,6 +2,7 @@ package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.notifications
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.vcsLabeling
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.maven
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
@@ -66,6 +67,11 @@ changeBuildType(RelativeId("BuildAndDeploy")) {
                 newBuildProblemOccurred = true
                 buildFinishedSuccessfully = true
                 firstSuccessAfterFailure = true
+            }
+        }
+        add {
+            vcsLabeling {
+                vcsRootId = "${DslContext.settingsRoot.id}"
             }
         }
     }
