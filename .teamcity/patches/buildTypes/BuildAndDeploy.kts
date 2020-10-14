@@ -26,13 +26,19 @@ changeBuildType(RelativeId("BuildAndDeploy")) {
     }
     steps {
         update<ScriptBuildStep>(1) {
+            name = "release"
             clearConditions()
-            scriptContent = """
-                echo 'Hello world!'
-                ls
-            """.trimIndent()
+            scriptContent = """mvn versions:set versions:commit -DnewVersion="1.0.2""""
         }
         insert(2) {
+            script {
+                scriptContent = """
+                    echo 'Hello world!'
+                    ls
+                """.trimIndent()
+            }
+        }
+        insert(3) {
             step {
                 name = "SSH Upload"
                 type = "ssh-deploy-runner"
@@ -42,12 +48,6 @@ changeBuildType(RelativeId("BuildAndDeploy")) {
                 param("secure:jetbrains.buildServer.deployer.password", "credentialsJSON:f9f9575b-b121-4d2c-9132-2eb2af23baf4")
                 param("jetbrains.buildServer.sshexec.authMethod", "PWD")
                 param("jetbrains.buildServer.deployer.ssh.transport", "jetbrains.buildServer.deployer.ssh.transport.scp")
-            }
-        }
-        insert(3) {
-            script {
-                name = "release"
-                scriptContent = """mvn versions:set versions:commit -DnewVersion="1.0.2""""
             }
         }
     }
