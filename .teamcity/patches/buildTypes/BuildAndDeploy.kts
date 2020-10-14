@@ -15,6 +15,10 @@ To apply the patch, change the buildType with id = 'BuildAndDeploy'
 accordingly, and delete the patch script.
 */
 changeBuildType(RelativeId("BuildAndDeploy")) {
+    vcs {
+        add(RelativeId("HttpsGithubComUygarSenocakkTeamcityExampleGit"))
+    }
+
     expectSteps {
         maven {
             goals = "clean install"
