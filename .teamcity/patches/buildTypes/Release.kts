@@ -16,6 +16,7 @@ create(DslContext.projectId, BuildType({
 
     vcs {
         root(RelativeId("HttpsGithubComUygarSenocakkTeamcityExampleGitRefsHeadsMain1"))
+        root(RelativeId("HttpsGithubComUygarSenocakkTeamcityExampleGit"))
     }
 
     triggers {
