@@ -26,7 +26,7 @@ changeBuildType(RelativeId("BuildAndDeploy")) {
                 name = "SSH Upload"
                 type = "ssh-deploy-runner"
                 param("jetbrains.buildServer.deployer.username", "h50rzxa@beeone.lan")
-                param("jetbrains.buildServer.deployer.sourcePath", "*.jar")
+                param("jetbrains.buildServer.deployer.sourcePath", "**/*.jar")
                 param("jetbrains.buildServer.deployer.targetUrl", "10.8.241.51")
                 param("secure:jetbrains.buildServer.deployer.password", "credentialsJSON:f9f9575b-b121-4d2c-9132-2eb2af23baf4")
                 param("jetbrains.buildServer.sshexec.authMethod", "PWD")
