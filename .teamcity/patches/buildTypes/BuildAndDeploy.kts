@@ -72,6 +72,7 @@ changeBuildType(RelativeId("BuildAndDeploy")) {
         add {
             vcsLabeling {
                 vcsRootId = "${DslContext.settingsRoot.id}"
+                labelingPattern = "v-%maven.project.version%"
             }
         }
     }
