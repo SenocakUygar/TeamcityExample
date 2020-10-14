@@ -59,6 +59,7 @@ changeBuildType(RelativeId("BuildAndDeploy")) {
                 notifierSettings = emailNotifier {
                     email = "uygare@gmail.com"
                 }
+                branchFilter = "+:<default>"
                 buildStarted = true
                 buildFailed = true
                 firstFailureAfterSuccess = true
