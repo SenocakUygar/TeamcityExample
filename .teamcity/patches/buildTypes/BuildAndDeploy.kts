@@ -1,6 +1,7 @@
 package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.notifications
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.maven
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
@@ -48,6 +49,21 @@ changeBuildType(RelativeId("BuildAndDeploy")) {
         add {
             vcs {
                 branchFilter = ""
+            }
+        }
+    }
+
+    features {
+        add {
+            notifications {
+                notifierSettings = emailNotifier {
+                    email = "uygare@gmail.com"
+                }
+                buildFailed = true
+                firstFailureAfterSuccess = true
+                newBuildProblemOccurred = true
+                buildFinishedSuccessfully = true
+                firstSuccessAfterFailure = true
             }
         }
     }
