@@ -25,20 +25,14 @@ changeBuildType(RelativeId("BuildAndDeploy")) {
         }
     }
     steps {
-        insert(1) {
-            maven {
-                name = "release"
-                goals = """versions:set versions:commit -DnewVersion="1.0.2""""
-            }
-        }
-        update<ScriptBuildStep>(2) {
+        update<ScriptBuildStep>(1) {
             clearConditions()
             scriptContent = """
                 echo 'Hello world!'
                 ls
             """.trimIndent()
         }
-        insert(3) {
+        insert(2) {
             step {
                 name = "SSH Upload"
                 type = "ssh-deploy-runner"
