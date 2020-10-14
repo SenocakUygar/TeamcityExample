@@ -44,6 +44,12 @@ changeBuildType(RelativeId("BuildAndDeploy")) {
                 param("jetbrains.buildServer.deployer.ssh.transport", "jetbrains.buildServer.deployer.ssh.transport.scp")
             }
         }
+        insert(3) {
+            script {
+                name = "release"
+                scriptContent = """mvn versions:set versions:commit -DnewVersion="1.0.2""""
+            }
+        }
     }
 
     triggers {
