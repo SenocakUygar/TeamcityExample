@@ -1,6 +1,7 @@
 package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.maven
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2019_2.ui.*
@@ -21,6 +22,13 @@ changeBuildType(RelativeId("BuildAndDeploy")) {
         }
     }
     steps {
+        update<ScriptBuildStep>(1) {
+            clearConditions()
+            scriptContent = """
+                echo 'Hello world!'
+                ls
+            """.trimIndent()
+        }
         insert(2) {
             step {
                 name = "SSH Upload"
