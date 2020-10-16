@@ -7,5 +7,6 @@ import org.springframework.boot.runApplication
 class TeamcityExampleApplication
 
 fun main(args: Array<String>) {
+    
     runApplication<TeamcityExampleApplication>(*args)
 }
