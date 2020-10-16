@@ -20,12 +20,12 @@ create(DslContext.projectId, BuildType({
 
     steps {
         maven {
-            name = "Release"
-            goals = "release:prepare"
-        }
-        maven {
             name = "Clean"
             goals = "release:clean"
+        }
+        maven {
+            name = "Release"
+            goals = "release:prepare"
         }
     }
 }))
