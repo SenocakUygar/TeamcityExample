@@ -24,15 +24,15 @@ create(DslContext.projectId, BuildType({
             name = "Clean"
             goals = "release:clean"
         }
-        maven {
-            name = "Release"
-            goals = "release:prepare"
-        }
         script {
             scriptContent = """
                 git config --global user.email "temacity@dbo.com"
                 git config --global user.name "Teamcity"
             """.trimIndent()
+        }
+        maven {
+            name = "Release"
+            goals = "release:prepare"
         }
     }
 }))
