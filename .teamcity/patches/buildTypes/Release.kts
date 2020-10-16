@@ -23,6 +23,10 @@ create(DslContext.projectId, BuildType({
             name = "Release"
             goals = "release:prepare"
         }
+        maven {
+            name = "Clean"
+            goals = "release:clean"
+        }
     }
 }))
 
