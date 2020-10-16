@@ -13,5 +13,9 @@ create(DslContext.projectId, BuildType({
     templates(RelativeId("TeamcityTemplate"))
     id("Test")
     name = "Test"
+
+    vcs {
+        root(DslContext.settingsRoot)
+    }
 }))
 
