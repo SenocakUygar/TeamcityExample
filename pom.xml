@@ -22,7 +22,6 @@
         <connection>scm:git:https://github.com/UygarSenocakk/TeamcityExample.git</connection>
         <url>https://github.com/UygarSenocakk/TeamcityExample</url>
         <developerConnection>scm:git:https://github.com/UygarSenocakk/TeamcityExample.git</developerConnection>
-        <tag>v3.0.8</tag>
   </scm>
 
     <dependencies>
