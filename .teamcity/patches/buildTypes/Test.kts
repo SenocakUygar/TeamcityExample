@@ -2,6 +2,7 @@ package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.BuildType
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.commitStatusPublisher
 import jetbrains.buildServer.configs.kotlin.v2019_2.ui.*
 
 /*
@@ -13,5 +14,23 @@ create(DslContext.projectId, BuildType({
     templates(RelativeId("TeamcityTemplate"))
     id("Test")
     name = "Test"
+
+    vcs {
+        root(DslContext.settingsRoot)
+    }
+
+    features {
+        commitStatusPublisher {
+            id = "BUILD_EXT_3"
+            vcsRootExtId = "${DslContext.settingsRoot.id}"
+            publisher = github {
+                githubUrl = "https://api.github.com"
+                authType = password {
+                    userName = "uygare@gmail.com"
+                    password = "credentialsJSON:6fd45833-c994-44f8-a611-0073690f8d1a"
+                }
+            }
+        }
+    }
 }))
 
