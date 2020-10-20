@@ -9,7 +9,7 @@
     </parent>
     <groupId>at.teamcity</groupId>
     <artifactId>example</artifactId>
-    <version>3.0.11-SNAPSHOT</version>
+    <version>3.0.15-SNAPSHOT</version>
     <name>TeamcityExample</name>
     <description>Demo project for Spring Boot</description>
 
@@ -22,7 +22,7 @@
         <connection>scm:git:https://github.com/UygarSenocakk/TeamcityExample.git</connection>
         <url>https://github.com/UygarSenocakk/TeamcityExample</url>
         <developerConnection>scm:git:https://github.com/UygarSenocakk/TeamcityExample.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>v3.0.14</tag>
   </scm>
 
     <dependencies>
